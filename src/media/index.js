@@ -1,0 +1,5 @@
+export { default as portrait } from './portrait.js'
+export { default as operationsDashboard } from './operationsDashboard.js'
+export { default as learningDashboard } from './learningDashboard.js'
+export { default as cvSpanish } from './cvSpanish.js'
+export { default as cvEnglish } from './cvEnglish.js'

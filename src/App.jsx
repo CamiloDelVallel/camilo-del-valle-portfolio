@@ -1,7 +1,11 @@
 import { useEffect, useState } from 'react'
-import portrait from './assets/camilo-linkedin.jpg'
-import operationsDashboard from './assets/dashboard-operations.webp'
-import learningDashboard from './assets/dashboard-learning.webp'
+import {
+  cvEnglish,
+  cvSpanish,
+  learningDashboard,
+  operationsDashboard,
+  portrait,
+} from './media'
 
 const profileLinks = {
   email: 'mailto:camilodelvallel@gmail.com',
@@ -15,90 +19,90 @@ const content = {
     nav: { about: 'Perfil', experience: 'Experiencia', data: 'Power BI', contact: 'Contacto' },
     cv: 'Descargar CV',
     skip: 'Ir al contenido',
-    availability: 'MedellÃ­n, Colombia Â· Abierto a nuevas oportunidades',
-    heroTitle: 'Conecto ingenierÃ­a, software y datos para mejorar cÃ³mo operan los equipos.',
+    availability: 'Medellín, Colombia · Abierto a nuevas oportunidades',
+    heroTitle: 'Conecto ingeniería, software y datos para mejorar cómo operan los equipos.',
     heroBody:
-      'Tech Lead e ingeniero mecÃ¡nico con mÃ¡s de 12 aÃ±os de experiencia profesional. DiseÃ±o soluciones digitales, lidero equipos y convierto procesos complejos en decisiones claras.',
+      'Tech Lead e ingeniero mecánico con más de 12 años de experiencia profesional. Diseño soluciones digitales, lidero equipos y convierto procesos complejos en decisiones claras.',
     explore: 'Conocer mi trayectoria',
     contactMe: 'Hablemos',
     portraitAlt: 'Retrato profesional de Camilo Del Valle Ledesma',
     proof: [
-      { value: '12+', label: 'aÃ±os de experiencia profesional' },
+      { value: '12+', label: 'años de experiencia profesional' },
       { value: '12', label: 'dashboards desarrollados en Riwi' },
-      { value: '15', label: 'proyectos liderados en simultÃ¡neo' },
-      { value: '+10%', label: 'automatizaciÃ³n lograda en lÃ­nea de producciÃ³n' },
+      { value: '15', label: 'proyectos liderados en simultáneo' },
+      { value: '+10 %', label: 'automatización lograda en línea de producción' },
     ],
     profileLabel: 'Una trayectoria que cruza disciplinas',
-    profileTitle: 'Entiendo la operaciÃ³n antes de escribir la soluciÃ³n.',
+    profileTitle: 'Entiendo la operación antes de escribir la solución.',
     profileBody:
-      'Mi experiencia comenzÃ³ en planta, continuÃ³ en desarrollo de software y hoy integra liderazgo tÃ©cnico, automatizaciÃ³n e inteligencia de negocios. Esa combinaciÃ³n me permite conversar con el negocio, entender el proceso y acompaÃ±ar al equipo hasta la entrega.',
+      'Mi experiencia comenzó en planta, continuó en desarrollo de software y hoy integra liderazgo técnico, automatización e inteligencia de negocios. Esa combinación me permite conversar con el negocio, entender el proceso y acompañar al equipo hasta la entrega.',
     disciplines: [
-      { title: 'IngenierÃ­a', text: 'Procesos, mejora continua, mantenimiento y producciÃ³n industrial.' },
+      { title: 'Ingeniería', text: 'Procesos, mejora continua, mantenimiento y producción industrial.' },
       { title: 'Software', text: 'Angular, .NET, SQL y soluciones escalables en entornos transaccionales.' },
-      { title: 'Datos', text: 'Power BI, automatizaciÃ³n y analÃ­tica para decisiones accionables.' },
+      { title: 'Datos', text: 'Power BI, automatización y analítica para decisiones accionables.' },
     ],
     experienceLabel: 'Experiencia',
-    experienceTitle: 'Liderazgo tÃ©cnico con contexto de negocio.',
+    experienceTitle: 'Liderazgo técnico con contexto de negocio.',
     roles: [
       {
-        company: 'Riwi', role: 'Tech Lead', period: 'Ago 2025 â€” Actualidad',
-        items: ['DiseÃ±o y desarrollo de componentes del modelo de entrenamiento en tecnologÃ­a.', 'Impulso de prÃ¡cticas investigativas y adopciÃ³n de tecnologÃ­as innovadoras.', 'CreaciÃ³n de 12 dashboards en Power BI para seguimiento y toma de decisiones.'],
+        company: 'Riwi', role: 'Tech Lead', period: 'Ago 2025 — Actualidad',
+        items: ['Diseño y desarrollo de componentes del modelo de entrenamiento en tecnología.', 'Impulso de prácticas investigativas y adopción de tecnologías innovadoras.', 'Creación de 12 dashboards en Power BI para seguimiento y toma de decisiones.'],
       },
       {
-        company: 'Global Hitss', role: 'Desarrollador Front Angular', period: 'Mar 2024 â€” Ago 2025',
-        items: ['Desarrollo front-end en Angular y trabajo con bases de datos SQL Server.', 'Scrum Master y desarrollador de Factura Web para EPM.', 'Reconocimiento consistente en el Top 3 de cierre de Work Orders.'],
+        company: 'Global Hitss', role: 'Desarrollador front-end Angular', period: 'Mar 2024 — Ago 2025',
+        items: ['Desarrollo front-end en Angular y trabajo con bases de datos SQL Server.', 'Scrum Master y desarrollador de Factura Web para EPM.', 'Reconocimiento constante entre los 3 mejores desarrolladores por cierre de órdenes de trabajo.'],
       },
       {
-        company: 'Bassis', role: 'LÃ­der de TecnologÃ­a', period: 'Feb 2023 â€” Nov 2023',
-        items: ['Liderazgo de equipo con hasta 15 proyectos simultÃ¡neos bajo Scrum.', 'Soluciones con Power Apps, Power Automate, Power BI, AppSheet y Looker Studio.'],
+        company: 'Bassis', role: 'Líder de Tecnología', period: 'Feb 2023 — Nov 2023',
+        items: ['Liderazgo de equipo con hasta 15 proyectos simultáneos bajo Scrum.', 'Soluciones con Power Apps, Power Automate, Power BI, AppSheet y Looker Studio.'],
       },
       {
-        company: 'Grupo Renault â€” Sofasa', role: 'Jefe de Taller y roles de ingenierÃ­a', period: 'Abr 2014 â€” Jul 2022',
-        items: ['ImplementaciÃ³n del proyecto HJD Renault Duster con +10% de automatizaciÃ³n.', 'GestiÃ³n de taller, mantenimiento y estandarizaciÃ³n de procedimientos con PDCA.'],
+        company: 'Grupo Renault — Sofasa', role: 'Jefe de taller y otros cargos de ingeniería', period: 'Abr 2014 — Jul 2022',
+        items: ['Implementación del proyecto HJD Renault Duster, que aumentó en más del 10 % la automatización de la línea de producción.', 'Gestión de taller y mantenimiento, y estandarización de procedimientos mediante el ciclo PHVA.'],
       },
       {
-        company: 'Coldeplast', role: 'Ingeniero de Procesos y Practicante', period: 'Dic 2011 â€” Abr 2014',
-        items: ['Inicio profesional en procesos industriales, estandarizaciÃ³n y mejora continua.'],
+        company: 'Coldeplast', role: 'Ingeniero de Procesos y Practicante', period: 'Dic 2011 — Abr 2014',
+        items: ['Inicio profesional en procesos industriales, estandarización y mejora continua.'],
       },
     ],
     dataLabel: 'Business Intelligence',
     dataTitle: 'Los datos sirven cuando ayudan a decidir.',
     dataBody:
       'He desarrollado 12 dashboards en Power BI para Riwi. Mi enfoque combina preguntas de negocio, modelado claro y visualizaciones que permiten actuar, no solo observar.',
-    dashboardCaption: 'Visual conceptual creado para representar mi prÃ¡ctica de BI; no contiene informaciÃ³n de clientes ni datos reales.',
-    dashboardAlts: ['Dashboard conceptual de desempeÃ±o operativo', 'Dashboard conceptual de aprendizaje y talento'],
+    dashboardCaption: 'Visual conceptual creado para representar mi práctica de BI; no contiene información de clientes ni datos reales.',
+    dashboardAlts: ['Dashboard conceptual de desempeño operativo', 'Dashboard conceptual de aprendizaje y talento'],
     capabilitiesLabel: 'Capacidades',
     capabilitiesTitle: 'Un stack pensado para entregar de extremo a extremo.',
     skills: [
       { group: 'Desarrollo', items: ['Angular', 'TypeScript', 'C#', '.NET', 'HTML & CSS'] },
       { group: 'Datos y BI', items: ['Power BI', 'SQL Server', 'Oracle', 'MySQL', 'Looker Studio'] },
-      { group: 'AutomatizaciÃ³n', items: ['Power Automate', 'Power Apps', 'AppSheet', 'Low-code'] },
-      { group: 'Liderazgo', items: ['Scrum', 'GestiÃ³n de proyectos', 'PDCA / PHVA', 'Azure DevOps'] },
+      { group: 'Automatización', items: ['Power Automate', 'Power Apps', 'AppSheet', 'Low-code'] },
+      { group: 'Liderazgo', items: ['Scrum', 'Gestión de proyectos', 'PDCA / PHVA', 'Azure DevOps'] },
     ],
-    educationLabel: 'FormaciÃ³n e idiomas',
+    educationLabel: 'Formación e idiomas',
     education: [
-      { title: 'EspecializaciÃ³n en Gerencia para Ingenieros', place: 'Universidad Pontificia Bolivariana Â· 2018â€“2019' },
-      { title: 'IngenierÃ­a MecÃ¡nica', place: 'Universidad Nacional de Colombia Â· 2007â€“2012' },
-      { title: 'Desarrollo Full Stack', place: 'Platzi, OIT y Sophos Solutions Â· 2022' },
+      { title: 'Especialización en Gerencia para Ingenieros', place: 'Universidad Pontificia Bolivariana · 2018–2019' },
+      { title: 'Ingeniería Mecánica', place: 'Universidad Nacional de Colombia · 2007–2012' },
+      { title: 'Desarrollo Full Stack', place: 'Platzi, OIT y Sophos Solutions · 2022' },
     ],
-    languages: 'EspaÃ±ol nativo Â· InglÃ©s B2 Â· FrancÃ©s B1',
+    languages: 'Español nativo · Inglés B2 · Francés B1',
     contactLabel: 'Contacto',
-    contactTitle: 'Construyamos la prÃ³xima mejora medible.',
-    contactBody: 'Estoy interesado en oportunidades donde pueda unir liderazgo tÃ©cnico, software, automatizaciÃ³n y datos.',
+    contactTitle: 'Construyamos la próxima mejora medible.',
+    contactBody: 'Estoy interesado en oportunidades donde pueda unir liderazgo técnico, software, automatización y datos.',
     email: 'Enviar correo', whatsapp: 'Escribir por WhatsApp', viewLinkedin: 'Ver LinkedIn', viewGithub: 'Ver GitHub',
-    cvEs: 'CV en espaÃ±ol', cvEn: 'CV en inglÃ©s',
-    footer: 'DiseÃ±ado alrededor de ingenierÃ­a, tecnologÃ­a y decisiones basadas en datos.',
+    cvEs: 'CV en español', cvEn: 'CV en inglés',
+    footer: 'Diseñado alrededor de ingeniería, tecnología y decisiones basadas en datos.',
   },
   en: {
     nav: { about: 'Profile', experience: 'Experience', data: 'Power BI', contact: 'Contact' },
-    cv: 'Download rÃ©sumÃ©',
+    cv: 'Download résumé',
     skip: 'Skip to content',
-    availability: 'MedellÃ­n, Colombia Â· Open to new opportunities',
+    availability: 'Medellín, Colombia · Open to new opportunities',
     heroTitle: 'I connect engineering, software and data to improve how teams operate.',
     heroBody:
       'Tech Lead and Mechanical Engineer with 12+ years of professional experience. I design digital solutions, lead teams and turn complex processes into clear decisions.',
     explore: 'Explore my experience',
-    contactMe: 'Letâ€™s talk',
+    contactMe: 'Let’s talk',
     portraitAlt: 'Professional portrait of Camilo Del Valle Ledesma',
     proof: [
       { value: '12+', label: 'years of professional experience' },
@@ -119,23 +123,23 @@ const content = {
     experienceTitle: 'Technical leadership grounded in business context.',
     roles: [
       {
-        company: 'Riwi', role: 'Tech Lead', period: 'Aug 2025 â€” Present',
+        company: 'Riwi', role: 'Tech Lead', period: 'Aug 2025 — Present',
         items: ['Design and development of technology training model components.', 'Research practices and adoption of innovative technologies.', 'Creation of 12 Power BI dashboards for monitoring and decision-making.'],
       },
       {
-        company: 'Global Hitss', role: 'Angular Front-end Developer', period: 'Mar 2024 â€” Aug 2025',
-        items: ['Angular front-end development and SQL Server database work.', 'Scrum Master and developer for EPMâ€™s Web Billing product.', 'Consistently ranked among the Top 3 developers for Work Order closure.'],
+        company: 'Global Hitss', role: 'Angular Front-end Developer', period: 'Mar 2024 — Aug 2025',
+        items: ['Angular front-end development and SQL Server database work.', 'Scrum Master and developer for EPM’s Web Billing product.', 'Consistently ranked among the Top 3 developers for Work Order closure.'],
       },
       {
-        company: 'Bassis', role: 'Technology Lead', period: 'Feb 2023 â€” Nov 2023',
+        company: 'Bassis', role: 'Technology Lead', period: 'Feb 2023 — Nov 2023',
         items: ['Led a team handling up to 15 simultaneous projects under Scrum.', 'Solutions using Power Apps, Power Automate, Power BI, AppSheet and Looker Studio.'],
       },
       {
-        company: 'Renault Group â€” Sofasa', role: 'Workshop Manager and engineering roles', period: 'Apr 2014 â€” Jul 2022',
-        items: ['Implemented the Renault Duster HJD project, achieving +10% production-line automation.', 'Workshop, maintenance and procedure standardization management using PDCA.'],
+        company: 'Renault Group — Sofasa', role: 'Workshop Manager and engineering roles', period: 'Apr 2014 — Jul 2022',
+        items: ['Implemented the Renault Duster HJD project, increasing production-line automation by more than 10%.', 'Managed workshop operations and maintenance, and standardized procedures using PDCA.'],
       },
       {
-        company: 'Coldeplast', role: 'Process Engineer and Intern', period: 'Dec 2011 â€” Apr 2014',
+        company: 'Coldeplast', role: 'Process Engineer and Intern', period: 'Dec 2011 — Apr 2014',
         items: ['Began my career in industrial processes, standardization and continuous improvement.'],
       },
     ],
@@ -155,16 +159,16 @@ const content = {
     ],
     educationLabel: 'Education and languages',
     education: [
-      { title: 'Specialization in Management for Engineers', place: 'Universidad Pontificia Bolivariana Â· 2018â€“2019' },
-      { title: 'Mechanical Engineering', place: 'Universidad Nacional de Colombia Â· 2007â€“2012' },
-      { title: 'Full Stack Development', place: 'Platzi, ILO and Sophos Solutions Â· 2022' },
+      { title: 'Specialization in Management for Engineers', place: 'Universidad Pontificia Bolivariana · 2018–2019' },
+      { title: 'Mechanical Engineering', place: 'Universidad Nacional de Colombia · 2007–2012' },
+      { title: 'Full Stack Development', place: 'Platzi, ILO and Sophos Solutions · 2022' },
     ],
-    languages: 'Spanish native Â· English C1 Â· French B1',
+    languages: 'Spanish native · English B2 · French B1',
     contactLabel: 'Contact',
-    contactTitle: 'Letâ€™s build the next measurable improvement.',
+    contactTitle: 'Let’s build the next measurable improvement.',
     contactBody: 'I am interested in opportunities where I can combine technical leadership, software, automation and data.',
     email: 'Send an email', whatsapp: 'Message me on WhatsApp', viewLinkedin: 'View LinkedIn', viewGithub: 'View GitHub',
-    cvEs: 'RÃ©sumÃ© in Spanish', cvEn: 'RÃ©sumÃ© in English',
+    cvEs: 'Résumé in Spanish', cvEn: 'Résumé in English',
     footer: 'Designed around engineering, technology and data-driven decisions.',
   },
 }
@@ -180,7 +184,8 @@ function ExternalIcon() {
 function App() {
   const [lang, setLang] = useState(() => new URLSearchParams(window.location.search).get('lang') === 'en' ? 'en' : 'es')
   const t = content[lang]
-  const cvPath = lang === 'es' ? '/Camilo-Del-Valle-CV-ES.pdf' : '/Camilo-Del-Valle-CV-EN.pdf'
+  const cvPath = lang === 'es' ? cvSpanish : cvEnglish
+  const cvFilename = lang === 'es' ? 'Camilo-Del-Valle-CV-ES.pdf' : 'Camilo-Del-Valle-CV-EN.pdf'
 
   const changeLanguage = (nextLanguage) => {
     const url = new URL(window.location.href)
@@ -192,28 +197,28 @@ function App() {
 
   useEffect(() => {
     document.documentElement.lang = lang
-    document.title = lang === 'es' ? 'Camilo Del Valle â€” Tech Lead' : 'Camilo Del Valle â€” Tech Lead'
+    document.title = lang === 'es' ? 'Camilo Del Valle — Tech Lead' : 'Camilo Del Valle — Tech Lead'
   }, [lang])
 
   return (
     <>
       <a className="skip-link" href="#main">{t.skip}</a>
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="Camilo Del Valle â€” inicio">
+        <a className="brand" href="#top" aria-label="Camilo Del Valle — inicio">
           <span>CDV</span><i />
         </a>
-        <nav aria-label={lang === 'es' ? 'NavegaciÃ³n principal' : 'Primary navigation'}>
+        <nav aria-label={lang === 'es' ? 'Navegación principal' : 'Primary navigation'}>
           <a href="#perfil">{t.nav.about}</a>
           <a href="#experiencia">{t.nav.experience}</a>
           <a href="#datos">{t.nav.data}</a>
           <a href="#contacto">{t.nav.contact}</a>
         </nav>
         <div className="header-actions">
-          <div className="language-switch" aria-label={lang === 'es' ? 'Seleccionar idioma' : 'Select language'}>
+          <div className="language-switch" role="group" aria-label={lang === 'es' ? 'Seleccionar idioma' : 'Select language'}>
             <button className={lang === 'es' ? 'active' : ''} onClick={() => changeLanguage('es')} aria-pressed={lang === 'es'}>ES</button>
             <button className={lang === 'en' ? 'active' : ''} onClick={() => changeLanguage('en')} aria-pressed={lang === 'en'}>EN</button>
           </div>
-          <a className="header-cv" href={cvPath} download>{t.cv}</a>
+          <a className="header-cv" href={cvPath} download={cvFilename}>{t.cv}</a>
         </div>
       </header>
 
@@ -232,7 +237,7 @@ function App() {
           <div className="portrait-wrap">
             <div className="portrait-code" aria-hidden="true"><span>ENG</span><span>DEV</span><span>BI</span></div>
             <img src={portrait} alt={t.portraitAlt} width="800" height="800" fetchPriority="high" />
-            <div className="portrait-note"><strong>Tech Lead</strong><span>Software Â· Data Â· Automation</span></div>
+            <div className="portrait-note"><strong>Tech Lead</strong><span>Software · Data · Automation</span></div>
           </div>
         </section>
 
@@ -283,7 +288,7 @@ function App() {
           <div className="dashboard-gallery">
             {[operationsDashboard, learningDashboard].map((image, index) => (
               <figure key={image}>
-                <img src={image} alt={t.dashboardAlts[index]} width="1536" height="1024" loading="lazy" />
+                <img src={image} alt={t.dashboardAlts[index]} width="1400" height="876" loading="lazy" />
                 <figcaption><span>{index === 0 ? 'Operations' : 'Learning'}</span>{t.dashboardCaption}</figcaption>
               </figure>
             ))}
@@ -315,16 +320,15 @@ function App() {
             <a href={profileLinks.github} target="_blank" rel="noreferrer">{t.viewGithub}<ExternalIcon /></a>
           </div>
           <div className="cv-downloads">
-            <a href="/Camilo-Del-Valle-CV-ES.pdf" download>{t.cvEs}</a>
-            <a href="/Camilo-Del-Valle-CV-EN.pdf" download>{t.cvEn}</a>
+            <a href={cvSpanish} download="Camilo-Del-Valle-CV-ES.pdf">{t.cvEs}</a>
+            <a href={cvEnglish} download="Camilo-Del-Valle-CV-EN.pdf">{t.cvEn}</a>
           </div>
         </section>
       </main>
 
-      <footer><a href="#top">Camilo Del Valle</a><p>{t.footer}</p><span>Â© {new Date().getFullYear()}</span></footer>
+      <footer><a href="#top">Camilo Del Valle</a><p>{t.footer}</p><span>© {new Date().getFullYear()}</span></footer>
     </>
   )
 }
 
 export default App
-
