@@ -1,0 +1,18 @@
+node_modules/
+dist/
+.codex-temp/
+.agents/
+.vercel/
+*.log
+.DS_Store
+SKILL.md
+skills-lock.json
+
+# Source CV copies; publish only the sanitized filenames under public/
+CamiloDelValleL - ES - 032026.pdf
+CamiloDelValleL - EN - CV 0526.pdf
+
+# Uncompressed source renders; the app uses optimized WebP assets
+src/assets/dashboard-operations.png
+src/assets/dashboard-learning.png
+
